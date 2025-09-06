@@ -1,4 +1,4 @@
-package org.gabalus.iss_damage_types.client;
+package org.gabalus.iss_damage_types.client.stun;
 
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.ai.attributes.Attribute;

@@ -34,5 +34,11 @@ public final class ModEntityAttributes {
         event.add(EntityType.PLAYER, ModAttributes.STUN_RESISTANCE);
         event.add(EntityType.PLAYER, ModAttributes.STUN_POTENCY);
 
+        event.add(EntityType.PLAYER, ModAttributes.ES_MAX);
+        event.add(EntityType.PLAYER, ModAttributes.ES_RECHARGE_RATE);
+        event.add(EntityType.PLAYER, ModAttributes.ES_RECHARGE_DELAY);
+        event.add(EntityType.PLAYER, ModAttributes.ES_BREAK_THRESHOLD);
+        event.add(EntityType.PLAYER, ModAttributes.ES_ON_KILL_GAIN);
+
     }
 }

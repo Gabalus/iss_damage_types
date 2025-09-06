@@ -13,6 +13,7 @@ public final class Network {
     public static void register(RegisterPayloadHandlersEvent event) {
         var registrar = event.registrar(Iss_damage_types.MOD_ID).versioned(PROTOCOL);
         registrar.playToClient(StunGaugeS2C.TYPE, StunGaugeS2C.CODEC, StunGaugeS2C::handle);
+        registrar.playToClient(SyncESPacket.TYPE, SyncESPacket.CODEC, SyncESPacket::handle);
     }
 
     // sending helpers (optional)

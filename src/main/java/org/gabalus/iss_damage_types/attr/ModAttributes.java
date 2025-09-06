@@ -64,4 +64,19 @@ public final class ModAttributes {
         return ATTRIBUTES.register(element + "_spell_damage",
             () -> new RangedAttribute("spell_damage." + element, 0.0D, 0.0D, 2048.0D).setSyncable(true));
     }
+
+    public static final DeferredHolder<Attribute, Attribute> ES_MAX = ATTRIBUTES.register("es_max",
+            () -> new RangedAttribute("attribute.name.energyshield.max", 0, 0.0D, 1024.0).setSyncable(true));
+
+    public static final DeferredHolder<Attribute, Attribute> ES_RECHARGE_RATE = ATTRIBUTES.register("es_recharge_rate",
+            () -> new RangedAttribute("attribute.name.energyshield.recharge_rate", 1, 0.0D, 1024.0).setSyncable(true)); // per second
+
+    public static final DeferredHolder<Attribute, Attribute> ES_RECHARGE_DELAY = ATTRIBUTES.register("es_recharge_delay",
+            () -> new RangedAttribute("attribute.name.energyshield.recharge_delay", 60, 0.0D, 20 * 60 * 60).setSyncable(true)); // ticks
+
+    public static final DeferredHolder<Attribute, Attribute> ES_BREAK_THRESHOLD = ATTRIBUTES.register("es_break_threshold",
+            () -> new RangedAttribute("attribute.name.energyshield.break_threshold", 0.1, 0.0D, 1024.0).setSyncable(true));
+
+    public static final DeferredHolder<Attribute, Attribute> ES_ON_KILL_GAIN = ATTRIBUTES.register("es_on_kill_gain",
+            () -> new RangedAttribute("attribute.name.energyshield.on_kill_gain", 0, 0.0D, 1024.0).setSyncable(true));
 }

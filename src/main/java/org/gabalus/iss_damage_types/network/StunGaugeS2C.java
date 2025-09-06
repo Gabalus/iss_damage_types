@@ -8,7 +8,7 @@ import net.minecraft.network.protocol.common.custom.CustomPacketPayload;
 import net.minecraft.resources.ResourceLocation;
 import net.neoforged.neoforge.network.handling.IPayloadContext;
 import org.gabalus.iss_damage_types.Iss_damage_types;
-import org.gabalus.iss_damage_types.client.ClientGaugeCache;
+import org.gabalus.iss_damage_types.client.stun.ClientGaugeCache;
 
 public record StunGaugeS2C(int entityId, double gauge, double threshold) implements CustomPacketPayload {
 

@@ -1,5 +1,8 @@
 {
-  "itemGroup.iss_damage_types": "Example Mod Tab",
-  "block.iss_damage_types.example_block": "Example Block",
-  "item.iss_damage_types.example_item": "Example Item"
+  "attribute.name.energyshield.max": "Energy Shield: Maximum",
+  "attribute.name.energyshield.recharge_rate": "Energy Shield: Recharge Rate",
+  "attribute.name.energyshield.recharge_delay": "Energy Shield: Recharge Delay (ticks)",
+  "attribute.name.energyshield.break_threshold": "Energy Shield: Hit Threshold",
+  "attribute.name.energyshield.on_kill_gain": "Energy Shield: On Kill Gain",
+  "attribute.name.energyshield.leech": "Energy Shield: Leech %"
 }
