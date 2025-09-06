@@ -25,14 +25,15 @@ public class HudOverlays {
         int sw = mc.getWindow().getGuiScaledWidth();
         int sh = mc.getWindow().getGuiScaledHeight();
 
-        double pThreshold = ClientThresholds.playerThreshold(mc.player);
-        double pGauge     = ClientGaugeCache.gauge(mc.player.getId());
-        if (pThreshold > 0) {
-            double left = Math.max(0.0D, pThreshold - pGauge);
-            float fill = (float)Math.max(0.0D, Math.min(1.0D, pGauge / pThreshold));
+        double pTh = ClientThresholds.playerThreshold(mc.player);
+        double pG  = ClientGaugeCache.threshold(mc.player.getId()) > 0 ? ClientGaugeCache.gauge(mc.player.getId()) : 0.0D;
+
+        if (pTh > 0) {
+            double left = Math.max(0.0D, pTh - pG);
+            float fill = (float)Math.max(0.0D, Math.min(1.0D, pG / pTh));
+            // y-pos whatever you prefer (e.g., sh - 60)
             drawBar(gg, pose, sw/2 - 91, sh - 60, 182, 6, fill,
-                    "Stun: " + formatAmount(pGauge) + " / " + formatAmount(pThreshold) +
-                            "  (" + formatAmount(left) + " left)");
+                    "Stun: " + formatAmount(pG) + " / " + formatAmount(pTh) + " (" + formatAmount(left) + " left)");
         }
 
 

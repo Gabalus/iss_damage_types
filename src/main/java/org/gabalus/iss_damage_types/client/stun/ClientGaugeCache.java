@@ -1,15 +1,16 @@
 package org.gabalus.iss_damage_types.client.stun;
 
+import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
 public final class ClientGaugeCache {
-    private static final class G { double g, th; long t; }
-    private static final ConcurrentHashMap<Integer, G> MAP = new ConcurrentHashMap<>();
+    private static final Map<Integer, Double> GAUGE = new ConcurrentHashMap<>();
+    private static final Map<Integer, Double> THRESH = new ConcurrentHashMap<>();
 
-    public static void update(int id, double gauge, double threshold) {
-        var v = MAP.computeIfAbsent(id, k -> new G());
-        v.g = gauge; v.th = threshold; v.t = System.currentTimeMillis();
+    public static void update(int entityId, double gauge, double threshold) {
+        GAUGE.put(entityId, gauge);
+        THRESH.put(entityId, threshold);
     }
-    public static double gauge(int id)     { var v = MAP.get(id); return v == null ? 0.0D : v.g; }
-    public static double threshold(int id) { var v = MAP.get(id); return v == null ? 0.0D : v.th; }
+    public static double gauge(int id)    { return GAUGE.getOrDefault(id, 0.0D); }
+    public static double threshold(int id){ return THRESH.getOrDefault(id, 0.0D); }
 }

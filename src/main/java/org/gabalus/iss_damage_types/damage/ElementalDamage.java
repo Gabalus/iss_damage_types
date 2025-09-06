@@ -68,10 +68,11 @@ public final class ElementalDamage {
 
         if (elemAdded > 0) {
             // mark on target (same tick) for subtraction in stun logic
+
             var nbt = e.getEntity().getPersistentData();
-            nbt.putDouble(NBTKeys.LAST_ELEM_ADD, elemAdded);
-            nbt.putLong  (NBTKeys.LAST_ELEM_TICK, e.getEntity().level().getGameTime());
-            nbt.putInt   (NBTKeys.LAST_ELEM_ATTACKER, attackerEnt.getId());
+            nbt.putDouble(NBTKeys.ELEM_ADD, elemAdded);
+            nbt.putLong  (NBTKeys.ELEM_TICK, e.getEntity().level().getGameTime());
+            nbt.putInt   (NBTKeys.ELEM_ATTACKER, attackerEnt.getId());
         }
     }
 
@@ -103,10 +104,11 @@ public final class ElementalDamage {
         float after = original + totalElemental;
         float elemAdded = after - original;
         if (elemAdded > 0 && srcEnt instanceof Player) {
+
             var nbt = e.getEntity().getPersistentData();
-            nbt.putDouble(NBTKeys.LAST_ELEM_ADD, elemAdded);
-            nbt.putLong  (NBTKeys.LAST_ELEM_TICK, e.getEntity().level().getGameTime());
-            nbt.putInt   (NBTKeys.LAST_ELEM_ATTACKER, srcEnt.getId());
+            nbt.putDouble(NBTKeys.ELEM_ADD, elemAdded);
+            nbt.putLong  (NBTKeys.ELEM_TICK, e.getEntity().level().getGameTime());
+            nbt.putInt   (NBTKeys.ELEM_ATTACKER, srcEnt.getId());
         }
 
         e.setAmount(after);
