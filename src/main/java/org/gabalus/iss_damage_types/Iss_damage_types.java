@@ -6,6 +6,7 @@ import net.neoforged.fml.common.Mod;
 import net.neoforged.fml.config.ModConfig;
 import net.neoforged.fml.ModLoadingContext;
 import net.neoforged.neoforge.common.NeoForge;
+import org.gabalus.iss_damage_types.network.Network;
 
 @Mod(Iss_damage_types.MOD_ID)
 public class Iss_damage_types {

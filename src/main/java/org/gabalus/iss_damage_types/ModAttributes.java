@@ -35,6 +35,25 @@ public final class ModAttributes {
     public static final DeferredHolder<Attribute, Attribute> SPELL_NATURE      = registerSpell("nature");
     public static final DeferredHolder<Attribute, Attribute> SPELL_ELDRITCH    = registerSpell("eldritch");
 
+    public static final DeferredHolder<Attribute, Attribute> STUN_SHIELD_ITEM_MULT =
+            ATTRIBUTES.register("stun_shield_item_mult",
+                    () -> new RangedAttribute("stun.shield_item_mult", 1.00D, 0.10D, 5.00D).setSyncable(true));
+
+    public static final DeferredHolder<Attribute, Attribute> STUN_THRESHOLD_REDUCTION =
+            ATTRIBUTES.register("stun_threshold_reduction",
+                    () -> new RangedAttribute("stun.threshold_reduction", 0.0D, 0.0D, 0.9D).setSyncable(true));
+// Reduces target’s threshold by up to 90%. 0.20 = 20% reduction.
+
+    public static final DeferredHolder<Attribute, Attribute> STUN_RESISTANCE =
+            ATTRIBUTES.register("stun_resistance",
+                    () -> new RangedAttribute("stun.resistance", 0.0D, 0.0D, 0.9D).setSyncable(true));
+// Reduces received stun duration by up to 90%.
+
+    public static final DeferredHolder<Attribute, Attribute> STUN_POTENCY =
+            ATTRIBUTES.register("stun_potency",
+                    () -> new RangedAttribute("stun.potency", 0.0D, 0.0D, 5.0D).setSyncable(true));
+// Attacker-side multiplier for stun duration scaling (0 = none, 1.0 = +100% duration, etc.)
+
     private static DeferredHolder<Attribute, Attribute> registerAttack(String element) {
         return ATTRIBUTES.register(element + "_attack_damage",
             () -> new RangedAttribute("attack_damage." + element, 0.0D, 0.0D, 2048.0D).setSyncable(true));

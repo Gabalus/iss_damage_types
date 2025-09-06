@@ -29,5 +29,10 @@ public final class ModEntityAttributes {
         event.add(EntityType.PLAYER, ModAttributes.SPELL_EVOCATION);
         event.add(EntityType.PLAYER, ModAttributes.SPELL_NATURE);
         event.add(EntityType.PLAYER, ModAttributes.SPELL_ELDRITCH);
+
+        event.add(EntityType.PLAYER, ModAttributes.STUN_THRESHOLD_REDUCTION);
+        event.add(EntityType.PLAYER, ModAttributes.STUN_RESISTANCE);
+        event.add(EntityType.PLAYER, ModAttributes.STUN_POTENCY);
+
     }
 }
