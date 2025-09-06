@@ -1,4 +1,4 @@
-package org.gabalus.iss_damage_types;
+package org.gabalus.iss_damage_types.attr;
 
 import java.util.List;
 
@@ -7,6 +7,7 @@ import net.minecraft.world.entity.ai.attributes.Attribute;
 import net.minecraft.world.entity.ai.attributes.RangedAttribute;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import net.neoforged.neoforge.registries.DeferredRegister;
+import org.gabalus.iss_damage_types.Iss_damage_types;
 
 public final class ModAttributes {
     public static final DeferredRegister<Attribute> ATTRIBUTES = DeferredRegister.create(Registries.ATTRIBUTE, Iss_damage_types.MOD_ID);

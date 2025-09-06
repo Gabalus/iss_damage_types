@@ -9,7 +9,7 @@ import net.neoforged.api.distmarker.Dist;
 import net.neoforged.api.distmarker.OnlyIn;
 import net.neoforged.neoforge.registries.DeferredHolder;
 import org.gabalus.iss_damage_types.Config;
-import org.gabalus.iss_damage_types.ModAttributes;
+import org.gabalus.iss_damage_types.attr.ModAttributes;
 
 @OnlyIn(Dist.CLIENT)
 public class ClientThresholds {

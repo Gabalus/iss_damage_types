@@ -1,10 +1,10 @@
-package org.gabalus.iss_damage_types;
+package org.gabalus.iss_damage_types.attr;
 
 import net.minecraft.world.entity.EntityType;
 import net.neoforged.bus.api.SubscribeEvent;
 import net.neoforged.fml.common.EventBusSubscriber;
-import net.neoforged.fml.common.Mod;
 import net.neoforged.neoforge.event.entity.EntityAttributeModificationEvent;
+import org.gabalus.iss_damage_types.Iss_damage_types;
 
 @EventBusSubscriber(modid = Iss_damage_types.MOD_ID)
 public final class ModEntityAttributes {
