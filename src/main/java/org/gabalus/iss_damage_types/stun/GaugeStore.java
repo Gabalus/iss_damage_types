@@ -31,7 +31,6 @@ public final class GaugeStore {
         return g;
     }
 
-    // Heavy gauge
     public static double getHeavy(LivingEntity e) {
         return e.getPersistentData().getDouble(NBTKeys.HEAVY_GAUGE);
     }

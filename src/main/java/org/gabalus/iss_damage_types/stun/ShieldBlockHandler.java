@@ -1,15 +1,17 @@
 package org.gabalus.iss_damage_types.stun;
 
 import net.neoforged.bus.api.SubscribeEvent;
+import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.living.LivingShieldBlockEvent;
 import net.minecraft.world.entity.LivingEntity;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import org.gabalus.iss_damage_types.Config;
+import org.gabalus.iss_damage_types.Iss_damage_types;
 import org.gabalus.iss_damage_types.network.Network;
 import org.gabalus.iss_damage_types.network.StunGaugeS2C;
-
+@EventBusSubscriber(modid = Iss_damage_types.MOD_ID)
 public final class ShieldBlockHandler {
 
     @SubscribeEvent
@@ -26,14 +28,12 @@ public final class ShieldBlockHandler {
 
         double add = Math.max(0.0D, e.getBlockedDamage());
 
-        // normal gauge rises so HUD reacts
         double th = Thresholds.threshold(tgt);
         if (th > 0 && add > 0) {
             double g = GaugeStore.addClampedAndMark(tgt, add, th);
             syncGauge(tgt, g, th);
         }
 
-        // heavy gauge (builds while blocking)
         double hTh = Thresholds.heavyThreshold(tgt);
         if (hTh <= 0.0D || add <= 0.0D) return;
         double hg = Math.min(hTh, GaugeStore.getHeavy(tgt) + add);
