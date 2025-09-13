@@ -1,5 +1,9 @@
 package org.gabalus.iss_damage_types;
 
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.TagKey;
+import net.minecraft.world.damagesource.DamageType;
 import net.neoforged.bus.api.IEventBus;
 import net.neoforged.fml.ModContainer;
 import net.neoforged.fml.common.Mod;
@@ -16,4 +20,8 @@ public class Iss_damage_types {
         modContainer.registerConfig(ModConfig.Type.COMMON, Config.SPEC);
         ModAttributes.ATTRIBUTES.register(modBus);
     }
+
+    public static final TagKey<DamageType> IS_ELECTRIC =
+            TagKey.create(Registries.DAMAGE_TYPE,
+                    ResourceLocation.fromNamespaceAndPath("iss_damage_types", "is_electric"));
 }
