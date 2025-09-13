@@ -12,11 +12,9 @@ public final class Network {
     @SubscribeEvent
     public static void register(RegisterPayloadHandlersEvent event) {
         var registrar = event.registrar(Iss_damage_types.MOD_ID).versioned(PROTOCOL);
-        registrar.playToClient(StunGaugeS2C.TYPE, StunGaugeS2C.CODEC, StunGaugeS2C::handle);
         registrar.playToClient(SyncESPacket.TYPE, SyncESPacket.CODEC, SyncESPacket::handle);
     }
 
-    // sending helpers (optional)
     public static void sendTo(net.minecraft.server.level.ServerPlayer sp, net.minecraft.network.protocol.common.custom.CustomPacketPayload p) {
         net.neoforged.neoforge.network.PacketDistributor.sendToPlayer(sp, p);
     }

@@ -16,7 +16,6 @@ import net.neoforged.fml.common.EventBusSubscriber;
 import net.neoforged.neoforge.event.entity.living.LivingDamageEvent;
 import org.gabalus.iss_damage_types.Iss_damage_types;
 import org.gabalus.iss_damage_types.attr.ModAttributes;
-import org.gabalus.iss_damage_types.stun.NBTKeys;
 
 import java.util.Optional;
 
@@ -54,25 +53,13 @@ public final class ElementalDamage {
             }
         }
 
-        float elemAdded = 0.0F;
         if (direct instanceof Arrow arrow) {
             double base = arrow.getBaseDamage();
             double newTotal = base + totalElemental;
-            elemAdded = (float)(newTotal - base);
             e.setNewDamage((float)newTotal);
         } else if (attackerEnt == direct || direct instanceof net.minecraft.world.entity.projectile.AbstractArrow) {
             float before = e.getNewDamage();
             e.setNewDamage(before + totalElemental);
-            elemAdded = totalElemental;
-        }
-
-        if (elemAdded > 0) {
-            // mark on target (same tick) for subtraction in stun logic
-
-            var nbt = e.getEntity().getPersistentData();
-            nbt.putDouble(NBTKeys.ELEM_ADD, elemAdded);
-            nbt.putLong  (NBTKeys.ELEM_TICK, e.getEntity().level().getGameTime());
-            nbt.putInt   (NBTKeys.ELEM_ATTACKER, attackerEnt.getId());
         }
     }
 
@@ -102,14 +89,6 @@ public final class ElementalDamage {
         }
 
         float after = original + totalElemental;
-        float elemAdded = after - original;
-        if (elemAdded > 0 && srcEnt instanceof Player) {
-
-            var nbt = e.getEntity().getPersistentData();
-            nbt.putDouble(NBTKeys.ELEM_ADD, elemAdded);
-            nbt.putLong  (NBTKeys.ELEM_TICK, e.getEntity().level().getGameTime());
-            nbt.putInt   (NBTKeys.ELEM_ATTACKER, srcEnt.getId());
-        }
 
         e.setAmount(after);
     }
