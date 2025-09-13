@@ -147,6 +147,9 @@ dependencies {
     compileOnly "mezz.jei:jei-${jei_mc_version}-common-api:${jei_version}"
     compileOnly "mezz.jei:jei-${jei_mc_version}-neoforge-api:${jei_version}"
     runtimeOnly "mezz.jei:jei-${jei_mc_version}-neoforge:${jei_version}"
+
+    implementation "curse.maven:mmmmmmmmmmmm-225738:6826533"
+    implementation "curse.maven:selene-499980:6982362"
 }
 
 // This block of code expands all declared replace properties in the specified resource targets.
